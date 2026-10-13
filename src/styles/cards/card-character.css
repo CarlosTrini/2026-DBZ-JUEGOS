@@ -1,0 +1,160 @@
+/* From Uiverse.io by Creatlydev */
+.card-character {
+    width: min(300px, 100%);
+    margin: auto;
+    background-color: #fdf9f9;
+    text-align: center;
+    border-top-left-radius: 4rem;
+    border: 2px solid #fff;
+    position: relative;
+    transition: all .4s ease-in-out;
+    text-transform: lowercase;
+
+    overflow: visible;
+    transform-style: preserve-3d;
+
+
+}
+
+
+.card-character:hover {
+    transform: perspective(1000px) rotateX(15deg) translateY(-6px);
+    box-shadow: 18px 24px 40px var(--color-accent-dark);
+    background-color: transparent;
+    border: 2px solid transparent;
+}
+
+.card-character:hover .card-character-image img {
+    transform: translate3d(0, -24px, 65px) scale(1.08);
+    transform: perspective(900px) rotateX(-30deg) translateY(-6px);
+}
+
+.card-character:hover .card-character-title {
+    color: var(--color-primary);
+}
+
+
+.card-character-image {
+    position: relative;
+    z-index: 1;
+    transform-style: preserve-3d;
+}
+
+.card-character-image img {
+    height: 400px;
+    object-fit: contain;
+    transform: translateZ(0);
+    transform-origin: bottom center;
+    transition: all .4s ease;
+}
+
+.card-character::before {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 50px;
+    background-color: var(--color-accent-dark);
+    top: 32px;
+    right: -2.5px;
+    -webkit-clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.card-character-header {
+    display: grid;
+    justify-items: center;
+    color: var(--color-dark);
+}
+
+.card-character-body {
+    padding: 1rem 0 1.5rem;
+    max-width: 25ch;
+    margin: auto;
+}
+
+.card-character-title {
+    font-weight: 800;
+    color: var(--color-accent-dark);
+    font-style: italic;
+    font-size: 25px;
+}
+
+
+
+.card-character-ribbon {
+    margin-top: .5rem;
+    display: grid;
+    place-items: center;
+    height: 50px;
+    background-color: var(--color-primary);
+    position: relative;
+    width: 110%;
+    left: -5%;
+    top: 10px;
+    position: relative;
+    border-radius: 0 0 2rem 2rem;
+    box-shadow: 0 10px 10px 0 var(--color-accent-dark);
+}
+
+.card-character-ribbon::after,
+.card-character-ribbon::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    aspect-ratio: 1/1;
+    bottom: 100%;
+    z-index: -2;
+    background-color: var(--color-accent-dark);
+}
+
+.card-character-ribbon::before {
+    left: 0;
+    transform-origin: left bottom;
+    transform: rotate(45deg);
+}
+
+.card-character-ribbon::after {
+    right: 0;
+    transform-origin: right bottom;
+    transform: rotate(-45deg);
+}
+
+.card-character-ribbon-label {
+    display: block;
+    width: 84px;
+    aspect-ratio: 1/1;
+    background-color: #fff;
+    position: relative;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: 8px solid var(--color-primary);
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    line-height: 1;
+    font-size: 1.5rem;
+
+}
+
+.card-character-ribbon-label::before,
+.card-character-ribbon-label::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    bottom: 50%;
+
+}
+
+.card-character-ribbon-label::before {
+    right: calc(100% + 4px);
+    border-bottom-right-radius: 20px;
+    box-shadow: 5px 5px 0 var(--color-primary);
+
+}
+
+.card-character-ribbon-label::after {
+    left: calc(100% + 4px);
+    border-bottom-left-radius: 20px;
+    box-shadow: -5px 5px 0 var(--color-primary);
+}

@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import "./cards/card-series.css";
+@import "./cards/card-character.css";
+@import "./cards/card-planets.css";
+
+:root {
+  --color-primary: #F97316;
+  --color-secondary: #22C55E;
+  --color-tertiary: #F1F5F9;
+  --color-quaternary: #c9130d;
+  --color-accent: #A855F7;
+  --color-accent-dark: #7E22CE;
+  --color-dark: #080B12;
+  --color-light: #B8C2D1;
+}
+
+@layer base {
+  body {
+    font-family: "Montenegrin Gothic One", system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+  }
+}
+
+
+@theme {
+  --color-primary: (--color-primary);
+  --color-secondary: (--color-secondary);
+  --color-tertiary: (--color-tertiary);
+  --color-quaternary: (--color-quaternary);
+  --color-accent: (--color-accent);
+  --color-accent-dark: (--color-accent-dark);
+  --color-dark: (--color-dark);
+  --color-light: (--color-light);
+  --breakpoint-xs: 20rem;
+  /* 320px */
+
+}
+
+
+
+.sand-timer img {
+  /* Cambia 0.5s para ajustar la velocidad solicitada */
+  animation: girar360 2s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes girar360 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.back-card {
+  transition: all .7s ease-in-out;
+}
+
+.card-memory-container:hover {
+  .back-card {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    /* width: 0;
+    height: 0; */
+    transition: all .7s ease-in-out;
+    z-index: 2;
+  }
+}
+
+
+.hide-front-card {
+  transform: translate(0, 0) scale(1);
+  opacity: 1;
+  transition: all .7s ease-in-out;
+  z-index: 2;
+
+}
+
+.show-front-card {
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  /* width: 0;
+    height: 0; */
+  transition: all .7s ease-in-out;
+  z-index: 2;
+}
